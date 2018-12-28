@@ -1,25 +1,37 @@
 const { values, getAddress, getAddressByType, getValue, getAddressByTypeAndAddress } = require('../objectKeys')
 
 describe('objectKeys', () => {
-  it.skip('random value', () => {
-    Object.keys(values).forEach((key) => {
+  Object.keys(values).forEach((key) => {
+    it.skip(`Should return value for "${key}"`, () => {
       expect(getValue(key)).toBe(values[key])
     })
-  })
+  });
 
-  it.skip('random address', () => {
-    expect(getAddress('first')).toBe(values.firstAddress)
-    expect(getAddress('second')).toBe(values.secondAddress)
-  })
+  [
+    ['first', values.firstAddress],
+    ['second', values.secondAddress]
+  ].forEach(([arg, res]) => {
+    it.skip(`Should retun value for part of partAddress = "${arg}"`, () => {
+      expect(getAddress(arg)).toBe(res)
+    })
+  });
 
-  it.skip('random address by type', () => {
-    expect(getAddressByType('address')).toBe(values.firstAddress)
-    expect(getAddressByType('house')).toBe(values.firstHouse)
-  })
+  [
+    ['address', values.firstAddress],
+    ['house', values.firstHouse]
+  ].forEach(([arg, res]) => {
+    it.skip(`Should return value by part of typeAddress = "${arg}"`, () => {
+      expect(getAddressByType(arg)).toBe(res)
+    })
+  });
 
-  it.skip('random address by type and address', () => {
-    expect(getAddressByTypeAndAddress('address', 'first')).toBe(values.firstAddress)
-    expect(getAddressByTypeAndAddress('address', 'second')).toBe(values.secondAddress)
-    expect(getAddressByTypeAndAddress('house')).toBe(values.firstHouse)
+  [
+    [['address', 'first'], values.firstAddress],
+    [['address', 'second'], values.secondAddress],
+    [['house'], values.firstHouse]
+  ].forEach(([args, res]) => {
+    it.skip(`Should return value by part of address and type: ${args}`, () => {
+      expect(getAddressByTypeAndAddress(...args)).toBe(res)
+    })
   })
 })

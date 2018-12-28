@@ -9,7 +9,7 @@ describe('arrayToTree', () => {
     { id: 5, parentId: null, title: 'task 5' },
     { id: 6, parentId: 3, title: 'task 6' },
     { id: 7, parentId: 1, title: 'task 7' },
-    { id: 8, parentId: 2, title: 'task 8' }
+    { id: 8, parentId: 5, title: 'task 8' }
   ]
 
   const arrResult = [
@@ -57,14 +57,14 @@ describe('arrayToTree', () => {
       childs: [
         {
           id: 8,
-          parentId: 2,
+          parentId: 5,
           title: 'task 8'
         }
       ]
     }
   ]
 
-  it.skip('should be valid transformed array', () => {
+  it('should be valid transformed array', () => {
     expect(arrayToTree(arr)).toEqual(arrResult)
   })
 })
