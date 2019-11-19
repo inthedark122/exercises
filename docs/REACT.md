@@ -21,6 +21,13 @@ npm start
 Полезные источники:
 - [File Structure](https://reactjs.org/docs/faq-structure.html)
 
+## Стайлгайды
+
+Полезные ссылки по стайлгайдам:
+
+- [EVENT HANDLER NAMING IN REACT](https://jaketrent.com/post/naming-event-handlers-react/) - хороший пример по наименованию в реакте
+- [https://github.com/airbnb/javascript/tree/master/react#airbnb-reactjsx-style-guide](https://github.com/airbnb/javascript/tree/master/react#airbnb-reactjsx-style-guide) - один из принципов
+
 
 ## В изучении JSX
 
